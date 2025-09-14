@@ -76,6 +76,114 @@ function add(a, b) {
   return a + b; // 戻り値
 }
 
+// 仮引数より呼び出し時の引数が少ない場合、余った仮引数にはundefinedが入る
+// 仮引数より呼び出し時の引数が多い場合、余った引数は無視される
+// ES2015: デフォルト引数を設定できる
+function echo(x = 0) {
+  return x;
+}
+console.log(echo()); // 0
 
+// 可変長引数
+// Rest Parameters (残余引数)
+// 関数に渡された引数を配列として受け取る
+functionfn(...args) {
+  console.log(args);
+}
+fn(1, 2, 3); // [1, 2, 3]
 
+// 配列を展開して関数に渡すSpread構文
+function fn(x, y, z) {
+  console.log(x, y, z);
+}
+const array2 = [1, 2, 3];
+fn(...array2); // 1 2 3
 
+// arguments
+// 関数に渡された全ての引数を配列のようなオブジェクトで受け取る
+// Arrow Functionでは使えないなどの制約があるので、Rest Parametersを使うことが推奨されている
+function fn2() {
+  console.log(arguments);
+}
+
+// 分割代入
+// オブジェクトや配列からプロパティを取り出し、変数として定義し直す構文
+
+function printUserId(user) {
+  console.log(user.id);
+}
+const user = { id: 1, name: 'Alice' };
+printUserId(user); // 1
+
+// オブジェクトや配列から特定のプロパティ（または要素）を取り出して、個別の変数として宣言・代入するための便利なショートハンド
+// 代入演算子（=）におけるオブジェクトの分割代入では、左辺に定義したい変数を定義し、右辺のオブジェクトから対応するプロパティを代入
+const { id } = user;
+console.log(id); // 1
+
+// JavaScriptでは関数もオブジェクト
+// ()をつけなければ関数オブジェクトを参照
+// 関数が値として扱えることをファーストクラスファンクション（第一級関数）と呼ぶ
+function fn() {
+  console.log("fn");
+}
+const myFunc = fn;
+myFunc();
+
+// 関数式
+// 関数を値として変数に代入する方法
+// 関数式では関数名を省略できる(無名関数) 関数宣言では省略できない
+const variable = function() {
+};
+
+function named() {
+};
+
+// 関数式でも関数名をつけることができる
+// 関数名は関数内でのみ参照可能
+const factorial = function fact(n) {
+  if (n <= 1) {
+    return 1;
+  }
+  return n * fact(n - 1);
+}
+console.log(factorial(5)); // 120
+
+// Arrow Function
+// 無名関数として定義される
+const variable2 = (x, y) => {
+  return x + y;
+}
+
+// 省略記法
+// 仮引数が1つの場合、()を省略できる
+// 関数本体が1行のreturn文のみの場合、{}とreturnを省略できる
+
+// Arrow Functionの特徴
+// 常に無名関数
+// thisが静的に決定できる
+// argumentsオブジェクトを持たない
+// newできない
+// Arrow Functionで書けるときはArrow Functionを使うことが推奨される
+
+// コールバック関数
+// 引数として渡される関数のこと
+// コールバック関数を引数として扱う関数やメソッドのことを高階関数と呼ぶ
+function higherOrderFunction(callback) {
+  callback();
+}
+
+const array3 = [1, 2, 3];
+const output = (value) => {
+  console.log(value);
+}
+array3.forEach(output); // 1 2 3
+
+// オブジェクトのプロパティである関数をメソッドと呼ぶ
+// ES2015からオブジェクトリテラルでメソッドを定義する際にfunctionキーワードを省略できる
+const obj2 = {
+  value: 1,
+  method() {
+    return "this is method";
+  }
+};
+console.log(obj2.method()); // this is method
