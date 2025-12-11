@@ -8,7 +8,7 @@ int main(void) {
   char i;
 
   while (fgets(buf, 256, stdin) != NULL) {
-    size++
+    size++;
     variable_array = realloc(variable_array, sizeof(int) * size);
     sscanf(buf, "%d", &variable_array[size-1]);
   }
