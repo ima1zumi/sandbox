@@ -1,4 +1,4 @@
-/-- 自前で実装した自然数　-/
+/-- 自前で実装した自然数-/
 inductive MyNat where
   /-- ゼロ -/
   | zero
@@ -12,3 +12,9 @@ inductive MyNat where
 
 def MyNat.one := MyNat.succ .zero
 def MyNat.two := MyNat.succ .one
+
+/-- MyNat同士の足し算 -/
+def MyNat.add (m n : MyNat) : MyNat :=
+  match n with
+  | .zero => m
+  | .succ n => succ (add m n)
