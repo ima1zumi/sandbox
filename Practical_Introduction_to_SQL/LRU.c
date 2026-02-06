@@ -23,3 +23,14 @@ typedef struct {
   Node *hash[MAX_KEY]; // キーからノードへのポインタ配列
 } LRUCache;
 
+// ノードの作成
+Node* createNode(int key, int value) { // Node型のポインタを返す
+  // ヒープ領域に確保し、関数が終わっても消えないようにする
+  Node* node = (Node*)malloc(sizeof(Node)); // sizeof(Node)してNodeのサイズ計算、mallocでメモリ確保、mallocの返り値をNode*にキャスト
+  node->key = key;
+  node->value = value;
+  node->prev = NULL;
+  node->next = NULL;
+  return node;
+}
+
