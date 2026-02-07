@@ -26,11 +26,31 @@ typedef struct {
 // ノードの作成
 Node* createNode(int key, int value) { // Node型のポインタを返す
   // ヒープ領域に確保し、関数が終わっても消えないようにする
-  Node* node = (Node*)malloc(sizeof(Node)); // sizeof(Node)してNodeのサイズ計算、mallocでメモリ確保、mallocの返り値をNode*にキャスト
-  node->key = key;
+  Node *node = (Node*)malloc(sizeof(Node)); // sizeof(Node)してNodeのサイズ計算、mallocでメモリ確保、mallocの返り値をNode*にキャスト
+  node->key = key; // アロー演算子でメンバ変数に代入
   node->value = value;
   node->prev = NULL;
   node->next = NULL;
   return node;
+}
+
+// キャッシュの初期化
+LRUCache* createCache(int capacity) {
+  LRUCache *cache = (LRUCache*)malloc(sizeof(LRUCache));
+  cache->capacity = capacity;
+  cache->size = 0;
+  cache->head = createNode(0, 0); // dummy
+  cache->tail = createNode(0, 0); // dummy
+
+  // headとtailをつなぐ
+  cache->head->next = cache->tail;
+  cache->tail->prev = cache->head;
+
+  // ハッシュ(配列)をNULLで初期化
+  for (int i = 0; i < MAX_KEY; i++) {
+    cache->hash[i] = NULL;
+  }
+
+  return cache;
 }
 
