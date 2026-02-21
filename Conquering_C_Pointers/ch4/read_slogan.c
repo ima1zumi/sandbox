@@ -11,7 +11,12 @@ void read_slogan(FILE *fp, char **slogan) {
 
   for (i = 0;i < 7; i++) {
     fgets(buf SLOGAN_MAX_LEN, fp);
+
     slogan_len = strlen(buf);
+    if (buf[slogan_len - 1] != '\n') {
+      fprintf(stderr, "標語が長すぎます。\n");
+      exit(1)
+    }
   }
 
 }
