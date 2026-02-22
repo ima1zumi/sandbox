@@ -17,6 +17,9 @@ void read_slogan(FILE *fp, char **slogan) {
       fprintf(stderr, "標語が長すぎます。\n");
       exit(1)
     }
+
+    // 改行文字を削除
+    buf[slogan_len - 1] = '\0';
   }
 
 }
