@@ -20,6 +20,9 @@ void read_slogan(FILE *fp, char **slogan) {
 
     // 改行文字を削除
     buf[slogan_len - 1] = '\0';
+
+    // 標語1つ分の領域確保
+    slogan[i] = malloc(sizeof(char) * slogan_len);
   }
 
 }
