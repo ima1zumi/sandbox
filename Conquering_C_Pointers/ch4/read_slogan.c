@@ -23,6 +23,9 @@ void read_slogan(FILE *fp, char **slogan) {
 
     // 標語1つ分の領域確保
     slogan[i] = malloc(sizeof(char) * slogan_len);
+
+    // 標語の内容をコピー
+    strcpy(slogan[i], buf);
   }
 
 }
