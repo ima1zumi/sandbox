@@ -27,5 +27,18 @@ void read_slogan(FILE *fp, char **slogan) {
     // 標語の内容をコピー
     strcpy(slogan[i], buf);
   }
+}
 
+int main(void) {
+  char *slogan[7];
+  int i;
+
+  read_slogan(stdin, slogan);
+
+  // 読み込んだ標語を表示する
+  for (i = 0; i < 7; i++) {
+    printf("%s\n", slogan[i]);
+  }
+
+  return 0;
 }
