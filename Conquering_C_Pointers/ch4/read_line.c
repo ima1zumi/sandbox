@@ -38,5 +38,5 @@ char *read_line(FILE *fp) {
   int ch;
   char *ret;
 
-  
+  st_current_used_size = 0;
 }
