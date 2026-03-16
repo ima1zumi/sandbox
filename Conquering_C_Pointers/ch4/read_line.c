@@ -39,4 +39,7 @@ char *read_line(FILE *fp) {
   char *ret;
 
   st_current_used_size = 0;
+
+  while ((ch = getc(fp)) != EOF) {
+  }
 }
