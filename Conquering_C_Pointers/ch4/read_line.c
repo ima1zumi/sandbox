@@ -41,5 +41,11 @@ char *read_line(FILE *fp) {
   st_current_used_size = 0;
 
   while ((ch = getc(fp)) != EOF) {
+    if (ch == '\n') {
+      add_character('\0');
+      break;
+    }
+
+    add_character(ch);
   }
 }
