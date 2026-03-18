@@ -48,4 +48,11 @@ char *read_line(FILE *fp) {
 
     add_character(ch);
   }
+  if (ch == EOF) {
+    if (st_current_used_size > 0) {
+      add_character('\0');
+    } else {
+      return NULL;
+    }
+  }
 }
