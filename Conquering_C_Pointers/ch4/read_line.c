@@ -55,4 +55,9 @@ char *read_line(FILE *fp) {
       return NULL;
     }
   }
+
+  ret = malloc(sizeof(char) * st_current_used_size);
+  strcpy(ret, st_line_buffer);
+
+  return ret;
 }
