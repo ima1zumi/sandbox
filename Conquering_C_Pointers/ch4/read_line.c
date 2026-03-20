@@ -61,3 +61,11 @@ char *read_line(FILE *fp) {
 
   return ret;
 }
+
+// バッファを解放する。呼ばなくても差し支えはないがプログラム終了時にはmallocした領域は全部freeしておきたい場合は呼び出す
+void free_buffer() {
+  free(st_line_buffer);
+  st_line_buffer = NULL;
+  st_current_buffer_size = 0;
+  st_current_used_size = 0;
+}
