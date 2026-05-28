@@ -32,6 +32,8 @@ UPDATEの方はUPDATEでやるのがいいとは思えない. 最初から正し
 INSERT前にSELECTして前日に欠勤があればseverty_pointsを0でINSERT
 それでもUPDATEでしかできないとしたら？という問題なのか
 
+// CURRENT_DATE()
+
 
 /*
 Example 1
