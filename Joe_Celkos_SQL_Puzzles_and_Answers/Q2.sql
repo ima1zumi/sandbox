@@ -27,6 +27,12 @@ WHERE P.id IN (
   HAVING SUM(severty_points) > 39
 )
 
+UPDATE Absenteeism
+SET absent_date = CURRENT_DATE()
+  AND severty_points = severty_points + 1
+WHERE absent_date != CURRENT_DATE() - 1
+  AND emp_id = '';
+
 /*
 UPDATEの方はUPDATEでやるのがいいとは思えない. 最初から正しい値を入れておけばいいだけだと思う
 INSERT前にSELECTして前日に欠勤があればseverty_pointsを0でINSERT
