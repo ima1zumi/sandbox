@@ -1,3 +1,5 @@
+#include <assert.h>
+
 typedef struct node {
   struct node *previous;
   struct node *next;
@@ -9,5 +11,8 @@ typedef struct {
 } List;
 
 int main() {
+  List list = {0};
+ 
+  assert(list.start == NULL);
   return 0;
 }
