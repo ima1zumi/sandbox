@@ -1,4 +1,5 @@
 #include <assert.h>
+#include <stdlib.h>
 
 typedef struct node {
   struct node *previous;
@@ -15,4 +16,7 @@ int main() {
  
   assert(list.start == NULL);
   return 0;
+}
+
+void insert() {
 }
