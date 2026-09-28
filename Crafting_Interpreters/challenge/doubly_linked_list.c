@@ -11,12 +11,15 @@ typedef struct {
   Node *start;
 } List;
 
+void insert(List *list, char *string) {
+}
+
 int main() {
   List list = {0};
+  char string;
  
   assert(list.start == NULL);
+  insert(&list, &string);
   return 0;
 }
 
-void insert() {
-}
