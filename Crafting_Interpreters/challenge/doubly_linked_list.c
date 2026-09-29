@@ -12,6 +12,10 @@ typedef struct {
 } List;
 
 void insert(List *list, char *string) {
+  // nodeを作る。previousはNULL, nextはstart. stringはstring
+  // list->startがNULLかどうか確認する
+  // NULLでないときは、startのpreviousを作ったnodeに差し替える
+  // startをnodeにする
 }
 
 int main() {
