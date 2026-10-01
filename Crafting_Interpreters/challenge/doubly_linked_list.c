@@ -25,10 +25,10 @@ void insert(List *list, char *string) {
 
 int main() {
   List list = {0};
-  char string;
+  char *string = "cat";
  
   assert(list.start == NULL);
-  insert(&list, &string);
+  insert(&list, string);
   return 0;
 }
 
