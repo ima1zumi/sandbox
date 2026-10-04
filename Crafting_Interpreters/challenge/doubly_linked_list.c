@@ -18,7 +18,7 @@ void insert(List *list, char *string) {
   n->next = list->start;
   n->string = strdup(string);
 
-  if (n->start != NULL) {
+  if (list->start != NULL) {
   }
   // nodeを作る。previousはNULL, nextはstart. stringはstring
   // list->startがNULLかどうか確認する
