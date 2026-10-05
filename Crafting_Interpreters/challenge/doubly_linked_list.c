@@ -19,11 +19,9 @@ void insert(List *list, char *string) {
   n->string = strdup(string);
 
   if (list->start != NULL) {
+    list->start->previous = n;
   }
-  // nodeを作る。previousはNULL, nextはstart. stringはstring
-  // list->startがNULLかどうか確認する
-  // NULLでないときは、startのpreviousを作ったnodeに差し替える
-  // startをnodeにする
+  list->start = n;
 }
 
 int main() {
@@ -32,6 +30,10 @@ int main() {
  
   assert(list.start == NULL);
   insert(&list, string);
+  assert(list.start != NULL);
+  assert(strcmp(list.start->string, string) == 0);
+  assert(list.start->previous == NULL);
+  assert(list.start->next == NULL);
   return 0;
 }
 
