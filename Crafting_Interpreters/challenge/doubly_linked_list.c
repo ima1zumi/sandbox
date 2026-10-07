@@ -12,6 +12,8 @@ typedef struct {
   Node *start;
 } List;
 
+void find() {}
+
 void insert(List *list, char *string) {
   Node *n = malloc(sizeof(Node));
   n->previous = NULL;
