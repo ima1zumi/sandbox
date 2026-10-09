@@ -12,7 +12,11 @@ typedef struct {
   Node *start;
 } List;
 
-void find() {}
+Node *find(List *list, char *string) {
+  Node *n;
+
+  return n; 
+}
 
 void insert(List *list, char *string) {
   Node *n = malloc(sizeof(Node));
@@ -30,6 +34,7 @@ int main() {
   List list = {0};
   char *string1 = "cat";
   char *string2 = "dog";
+  Node *node;
  
   assert(list.start == NULL);
   insert(&list, string1);
@@ -44,6 +49,7 @@ int main() {
   assert(strcmp(list.start->next->string, string1) == 0);
   assert(list.start->next->previous == list.start);
   assert(list.start->next->next == NULL);
+  node = find(&list, string1);
   return 0;
 }
 
