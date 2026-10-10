@@ -14,6 +14,7 @@ typedef struct {
 
 Node *find(List *list, char *string) {
   Node *n;
+  // 先頭ノードから探す
 
   return n; 
 }
